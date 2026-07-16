@@ -1,0 +1,6 @@
+string robot_id
+string requested_role
+string reason
+---
+bool accepted
+string message

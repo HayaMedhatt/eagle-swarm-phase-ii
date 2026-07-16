@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>eagle_swarm_px4</name>
+  <version>1.0.0</version>
+  <description>PX4 SITL and MAVROS adapter for EAGLE SWARM.</description>
+  <maintainer email="haya@example.com">Haya Medhat Abdelhamid</maintainer>
+  <license>Apache-2.0</license>
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>mavros_msgs</depend>
+  <depend>eagle_swarm_msgs</depend>
+  <depend>eagle_swarm_common</depend>
+  <exec_depend>ros2launch</exec_depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

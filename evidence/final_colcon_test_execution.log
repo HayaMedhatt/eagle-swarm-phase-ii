@@ -1,0 +1,89 @@
+Starting >>> eagle_swarm_msgs
+Starting >>> eagle_swarm_common
+Finished <<< eagle_swarm_msgs [0.13s]
+Starting >>> eagle_swarm_dashboard
+Starting >>> eagle_swarm_tools
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+--- stderr: eagle_swarm_common
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+---
+Finished <<< eagle_swarm_common [0.25s]
+Starting >>> eagle_swarm_px4
+Starting >>> eagle_swarm_sim
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+--- stderr: eagle_swarm_dashboard
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+---
+Finished <<< eagle_swarm_dashboard [0.25s]
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+--- stderr: eagle_swarm_tools
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+---
+Finished <<< eagle_swarm_tools [0.37s]
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+--- stderr: eagle_swarm_px4
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+---
+Finished <<< eagle_swarm_px4 [0.25s]
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+--- stderr: eagle_swarm_sim
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+---
+Finished <<< eagle_swarm_sim [0.27s]
+Starting >>> eagle_swarm_core
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+--- stderr: eagle_swarm_core
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.000s
+
+OK
+---
+Finished <<< eagle_swarm_core [0.15s]
+
+Summary: 7 packages finished [0.96s]
+  6 packages had stderr output: eagle_swarm_common eagle_swarm_core eagle_swarm_dashboard eagle_swarm_px4 eagle_swarm_sim eagle_swarm_tools

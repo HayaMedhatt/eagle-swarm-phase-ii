@@ -1,0 +1,16 @@
+Starting >>> eagle_swarm_msgs
+Starting >>> eagle_swarm_common
+Finished <<< eagle_swarm_common [0.55s]
+Finished <<< eagle_swarm_msgs [5.42s]
+Starting >>> eagle_swarm_dashboard
+Starting >>> eagle_swarm_px4
+Starting >>> eagle_swarm_sim
+Starting >>> eagle_swarm_tools
+Finished <<< eagle_swarm_px4 [0.84s]
+Finished <<< eagle_swarm_tools [0.83s]
+Finished <<< eagle_swarm_sim [0.84s]
+Finished <<< eagle_swarm_dashboard [0.85s]
+Starting >>> eagle_swarm_core
+Finished <<< eagle_swarm_core [0.49s]
+
+Summary: 7 packages finished [6.99s]

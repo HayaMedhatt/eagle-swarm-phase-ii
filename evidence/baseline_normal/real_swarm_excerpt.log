@@ -1,0 +1,38 @@
+# Baseline runtime excerpts from candidate machine (2026-07-16)
+# These prove the integration path; run the final campaign to regenerate evidence for the packaged revision.
+
+## Final selective-landing/random-coverage run
+[mission_demo-15] [WARN] [1784218043.767534442] [mission_demo]: RANDOM COVERAGE seed=2180021560: relay_1=(1.58, -4.99), scout_1=(3.23, -0.75), worker_1=(1.79, 5.51)
+[mission_demo-15] [WARN] [1784218059.598844973] [mission_demo]: All three aerial units ACTIVE after takeoff and hover
+[px4_adapter-11] [INFO] [1784218059.601063876] [worker_1_px4_adapter]: worker_1 COVERAGE MOVE -> (1.79, 5.51)
+[px4_adapter-10] [INFO] [1784218059.602030264] [scout_1_px4_adapter]: scout_1 COVERAGE MOVE -> (3.23, -0.75)
+[px4_adapter-12] [INFO] [1784218059.602826315] [relay_1_px4_adapter]: relay_1 COVERAGE MOVE -> (1.58, -4.99)
+[px4_adapter-10] [INFO] [1784218061.524994567] [scout_1_px4_adapter]: scout_1 SECTOR READY at (2.91, -0.50)
+[px4_adapter-12] [INFO] [1784218061.591750476] [relay_1_px4_adapter]: relay_1 SECTOR READY at (1.49, -4.65)
+[px4_adapter-11] [INFO] [1784218061.921217051] [worker_1_px4_adapter]: worker_1 SECTOR READY at (1.69, 5.53)
+[mission_demo-15] [WARN] [1784218062.098882737] [mission_demo]: All three aerial units completed coverage-sector movement; RGB CUE person_001 candidate
+[mission_demo-15] [WARN] [1784218064.599057162] [mission_demo]: THERMAL CONFIRMED person_001 at (10.00, 0.00); beacon published
+[px4_adapter-11] [INFO] [1784218064.599948006] [worker_1_px4_adapter]: BID(real) person_001: d=9.77, battery=6.80, role=0.00, link=3.00, total=19.57
+[px4_adapter-10] [INFO] [1784218064.601578567] [scout_1_px4_adapter]: BID(real) person_001: d=6.85, battery=7.20, role=2.00, link=2.40, total=18.45
+[px4_adapter-12] [INFO] [1784218064.606347375] [relay_1_px4_adapter]: BID(real) person_001: d=9.87, battery=6.40, role=8.00, link=1.20, total=25.47
+[coordinator-3] [INFO] [1784218067.439611002] [coordinator_relay_1]: ALLOCATE person_001->scout_1 cost=18.45; bids=4; authority=relay_1
+[px4_adapter-10] [INFO] [1784218067.442630203] [scout_1_px4_adapter]: AWARD(real) person_001; local setpoint=(10.01, -0.05, 3.00)
+[px4_adapter-10] [INFO] [1784218070.524857200] [scout_1_px4_adapter]: scout_1 ARRIVED at person_001
+[coordinator-3] [INFO] [1784218070.939649747] [coordinator_relay_1]: COMPLETE person_001: winner scout_1 confirmed ARRIVED
+[px4_adapter-12] [INFO] [1784218071.599836529] [relay_1_px4_adapter]: relay_1 RETURN HOME -> (0.02, -0.02)
+[px4_adapter-11] [INFO] [1784218071.600310993] [worker_1_px4_adapter]: worker_1 RETURN HOME -> (-0.01, 0.05)
+[px4_adapter-10] [WARN] [1784218071.600850082] [scout_1_px4_adapter]: scout_1 DIRECT LAND at current target position
+[px4_adapter-10] [INFO] [1784218071.612092874] [scout_1_px4_adapter]: scout_1 land request: success=True, result=0
+[px4_adapter-12] [INFO] [1784218073.720110909] [relay_1_px4_adapter]: relay_1 land request: success=True, result=0
+[px4_adapter-11] [INFO] [1784218073.998814906] [worker_1_px4_adapter]: worker_1 land request: success=True, result=0
+[px4_adapter-11] [INFO] [1784218082.921360832] [worker_1_px4_adapter]: worker_1 LANDED
+[px4_adapter-12] [INFO] [1784218083.591920454] [relay_1_px4_adapter]: relay_1 LANDED
+
+## Separation and complete-landing baseline
+[coordinator-3] [INFO] [1784207926.243049685] [coordinator_relay_1]: ALLOCATE person_001->worker_1 cost=17.55; bids=4; authority=relay_1
+[safety_monitor-13] [WARN] [1784207927.357265872] [safety_monitor]: SEPARATION_INTERVENTION scout_1/worker_1 d=2.59m -> hold scout_1
+[safety_monitor-13] [INFO] [1784207928.312083415] [safety_monitor]: SEPARATION CLEAR scout_1/worker_1 d=3.45m -> resume scout_1
+[px4_adapter-12] [INFO] [1784207945.401937363] [relay_1_px4_adapter]: relay_1 LANDED
+[px4_adapter-10] [INFO] [1784207945.507438484] [scout_1_px4_adapter]: scout_1 LANDED
+[px4_adapter-11] [INFO] [1784207946.283624515] [worker_1_px4_adapter]: worker_1 LANDED
+[mission_demo-15] [WARN] [1784207946.504173082] [mission_demo]: DEMO COMPLETE: takeoff, hover, sector coverage, detection, allocation, target movement and landing

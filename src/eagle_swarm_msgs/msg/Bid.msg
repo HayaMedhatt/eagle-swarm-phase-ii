@@ -1,0 +1,10 @@
+string bidder_id
+string target_id
+float32 distance_cost
+float32 battery_penalty
+float32 role_penalty
+float32 link_penalty
+float32 total_cost
+float32 eta
+float32 battery_after
+builtin_interfaces/Time stamp

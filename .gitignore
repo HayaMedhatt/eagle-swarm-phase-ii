@@ -1,0 +1,18 @@
+build/
+install/
+log/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.before_*
+*.bak
+.eagle_swarm_integrated.pids
+evidence/runtime/
+
+# Private/local submission files
+.env
+*.mp4
+*.mov
+*.zip
+HAYA Phase II Assessment*.pdf
+.eagle_swarm_integrated.pids

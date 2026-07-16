@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>eagle_swarm_sim</name>
+  <version>1.0.0</version>
+  <description>Gazebo assets and independent separation safety monitoring.</description>
+  <maintainer email="haya@example.com">Haya Medhat Abdelhamid</maintainer>
+  <license>Apache-2.0</license>
+  <depend>rclpy</depend>
+  <depend>eagle_swarm_msgs</depend>
+  <depend>eagle_swarm_common</depend>
+  <depend>std_msgs</depend>
+  <exec_depend>ros2launch</exec_depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

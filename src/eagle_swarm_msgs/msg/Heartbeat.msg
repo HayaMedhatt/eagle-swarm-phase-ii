@@ -1,0 +1,9 @@
+string robot_id
+string role
+string state
+float32 battery
+geometry_msgs/Pose pose
+float32 link_quality
+float32 capability
+bool gps_ok
+builtin_interfaces/Time stamp

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>eagle_swarm_dashboard</name>
+  <version>1.0.0</version>
+  <description>Operational Digital Twin dashboard for EAGLE SWARM.</description>
+  <maintainer email="haya@example.com">Haya Medhat Abdelhamid</maintainer>
+  <license>Apache-2.0</license>
+  <depend>rclpy</depend>
+  <depend>eagle_swarm_msgs</depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

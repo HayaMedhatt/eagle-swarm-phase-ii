@@ -1,0 +1,10 @@
+geometry_msgs/Pose target_pose
+float32 safety_margin
+---
+bool success
+string final_state
+float32 distance_remaining
+---
+geometry_msgs/Pose current_pose
+float32 distance_remaining
+string state

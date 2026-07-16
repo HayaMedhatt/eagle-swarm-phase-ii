@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>eagle_swarm_tools</name>
+  <version>1.0.0</version>
+  <description>Deterministic swarm fault injection tools.</description>
+  <maintainer email="haya@example.com">Haya Medhat Abdelhamid</maintainer>
+  <license>Apache-2.0</license>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>eagle_swarm_msgs</depend>
+  <test_depend>python3-pytest</test_depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

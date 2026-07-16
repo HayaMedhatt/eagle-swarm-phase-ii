@@ -1,0 +1,79 @@
+digraph EagleSwarm {
+  graph [rankdir=LR, bgcolor="white", pad="0.25", nodesep="0.35", ranksep="0.75", fontname="DejaVu Sans", label="EAGLE SWARM - Operational Architecture and Safety Boundary", labelloc=t, fontsize=20];
+  node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=10, color="#334155", fillcolor="#f8fafc", margin="0.12,0.08"];
+  edge [fontname="DejaVu Sans", fontsize=8, color="#475569", arrowsize=0.7];
+
+  subgraph cluster_ground {
+    label="Ground Station"; color="#94a3b8"; style="rounded";
+    operator [label="Human Operator", fillcolor="#dbeafe"];
+    mission [label="Mission Orchestrator\nhealth gates + coverage + target", fillcolor="#dbeafe"];
+    dashboard [label="Digital Twin\nread-only operational view", fillcolor="#e0f2fe"];
+    evidence [label="Acceptance Evidence Runner\n5 faults + separation -> machine PASS", fillcolor="#dcfce7"];
+    role [label="Role Manager\n/swarm/request_role_change service", fillcolor="#e0f2fe"];
+    actions [label="Namespaced GoToTarget Actions\n/drone/<id>/go_to_target", fillcolor="#e0f2fe"];
+    operator -> mission;
+  }
+
+  bus [shape=record, label="{ROS 2 DDS SWARM CONTRACT|heartbeat|target beacon|bids|retained award|retained leader|faults|safety events|mission command|role-change service|go-to-target actions}", fillcolor="#fef3c7", color="#d97706", penwidth=1.5];
+
+  subgraph cluster_scout {
+    label="Scout - scout_1"; color="#60a5fa"; style="rounded";
+    scout_adapter [label="PX4 Adapter"];
+    scout_safety [label="Onboard Safety Authority", fillcolor="#fee2e2"];
+    scout_replica [label="Coordinator Replica", fillcolor="#ede9fe"];
+    scout_px4 [label="PX4 SITL + MAVROS", fillcolor="#e2e8f0"];
+    scout_adapter -> scout_px4 [dir=both, label="state / setpoints"];
+    scout_safety -> scout_px4 [label="override"];
+  }
+
+  subgraph cluster_worker {
+    label="Mapping / Worker - worker_1"; color="#60a5fa"; style="rounded";
+    worker_adapter [label="PX4 Adapter"];
+    worker_safety [label="Onboard Safety Authority", fillcolor="#fee2e2"];
+    worker_replica [label="Coordinator Replica", fillcolor="#ede9fe"];
+    worker_px4 [label="PX4 SITL + MAVROS", fillcolor="#e2e8f0"];
+    worker_adapter -> worker_px4 [dir=both, label="state / setpoints"];
+    worker_safety -> worker_px4 [label="override"];
+  }
+
+  subgraph cluster_relay {
+    label="Coordinator / Relay - relay_1"; color="#60a5fa"; style="rounded";
+    relay_adapter [label="PX4 Adapter"];
+    relay_safety [label="Onboard Safety Authority", fillcolor="#fee2e2"];
+    relay_replica [label="Coordinator Replica", fillcolor="#c4b5fd", penwidth=1.5];
+    relay_px4 [label="PX4 SITL + MAVROS", fillcolor="#e2e8f0"];
+    relay_adapter -> relay_px4 [dir=both, label="state / setpoints"];
+    relay_safety -> relay_px4 [label="override"];
+  }
+
+  subgraph cluster_groundrelay {
+    label="Scored Ground Relay Extension"; color="#22c55e"; style="rounded";
+    ground_agent [label="Generic SwarmAgent\nsame heartbeat/bid/award", fillcolor="#dcfce7"];
+    ground_replica [label="Coordinator Replica", fillcolor="#ede9fe"];
+  }
+
+  separation [label="Independent 3-D Separation Monitor\nhold / resume / near-miss log", fillcolor="#fee2e2", color="#dc2626"];
+  perception [label="Simulation Perception Contract\nRGB cue -> thermal confirmation", fillcolor="#fce7f3"];
+
+  mission -> bus [label="sector / land / return-home"];
+  dashboard -> bus [dir=both, arrowhead=none, label="subscribe"];
+  evidence -> bus [dir=both, label="inject + verify"];
+  role -> bus [dir=both, label="service request / response"];
+  actions -> bus [dir=both, label="goal / feedback / result"];
+  perception -> bus [label="confirmed beacon"];
+  separation -> bus [dir=both, label="heartbeats / hold-resume"];
+
+  scout_adapter -> bus [dir=both];
+  worker_adapter -> bus [dir=both];
+  relay_adapter -> bus [dir=both];
+  scout_replica -> bus [dir=both];
+  worker_replica -> bus [dir=both];
+  relay_replica -> bus [dir=both];
+  ground_agent -> bus [dir=both];
+  ground_replica -> bus [dir=both];
+
+  safety_note [shape=note, label="Safety precedence:\nshutdown > land > battery RTB > GPS/collision hold > mission", fillcolor="#fff1f2", color="#e11d48"];
+  safety_note -> scout_safety [style=dashed, arrowhead=none];
+  safety_note -> worker_safety [style=dashed, arrowhead=none];
+  safety_note -> relay_safety [style=dashed, arrowhead=none];
+}

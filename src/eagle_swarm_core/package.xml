@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>eagle_swarm_core</name>
+  <version>1.0.0</version>
+  <description>Distributed swarm coordination, allocation and recovery.</description>
+  <maintainer email="haya@example.com">Haya Medhat Abdelhamid</maintainer>
+  <license>Apache-2.0</license>
+  <depend>rclpy</depend>
+  <depend>ament_index_python</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>eagle_swarm_msgs</depend>
+  <depend>eagle_swarm_common</depend>
+  <exec_depend>ros2launch</exec_depend>
+  <exec_depend>eagle_swarm_px4</exec_depend>
+  <exec_depend>eagle_swarm_sim</exec_depend>
+  <exec_depend>eagle_swarm_dashboard</exec_depend>
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
