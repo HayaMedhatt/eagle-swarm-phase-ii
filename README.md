@@ -2,7 +2,7 @@
 
 A reproducible **ROS 2 + PX4 SITL + Gazebo** prototype for a three-UAV civilian reconnaissance swarm. The system demonstrates distributed coordination, constrained-random coverage, Contract-Net task allocation, leader election, battery-aware return-to-base, collision-safety behavior, fault injection, a Ground Relay extension, and a browser-based Digital Twin.
 
-> **Public repository scope:** This repository contains the runnable source code and setup instructions. The technical report, architecture PDF, demonstration video, and generated runtime evidence are distributed separately.
+> **Public repository scope:** This repository contains the runnable source code and setup instructions.
 
 ## Demonstrated capabilities
 
